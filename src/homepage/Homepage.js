@@ -21,10 +21,10 @@ const useStyles = makeStyles((theme) => ({
 
 const Homepage = ({ eventsList, Error, Loading, getEvents }) => {
   const classes = useStyles();
-  console.log(Loading,"in HomePage")
+  console.log(Loading, "in HomePage");
   useEffect(() => {
     async function foo() {
-      await getEvents();
+      await getEvents("");
     }
     foo();
   }, [getEvents]);

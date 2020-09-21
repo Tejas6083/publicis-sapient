@@ -8,7 +8,7 @@ import { Grid } from "@material-ui/core";
 import CustomizedButtons from "../button/Button";
 import { connect } from "react-redux";
 
-import { fetchFilter } from "../redux/spaceX/Fetch";
+import fetchPosts from "../redux/spaceX/Fetch";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -46,9 +46,6 @@ const FilterCard = ({ getEvents }) => {
   const handleClick = (e, name) => {
     e.preventDefault();
 
-    // if (!(typeof name === "string")) {
-    //   name = JSON.stringify(name);
-    // }
     name = name.toLowerCase().trim();
     switch (e.currentTarget.value) {
       case "launch_success":
@@ -155,7 +152,7 @@ const FilterCard = ({ getEvents }) => {
 };
 
 const mapDispatchToProps = {
-  getEvents: fetchFilter,
+  getEvents: fetchPosts,
 };
 
 export default connect(null, mapDispatchToProps)(FilterCard);

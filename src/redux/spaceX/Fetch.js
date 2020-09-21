@@ -8,23 +8,7 @@ import {
 
 const SERVER_URL = "https://api.spaceXdata.com/v3/launches?limit=100";
 
-const fetchPosts = (address) => {
-  return (dispatch) => {
-    dispatch(fetchEventsRequest);
-    axios
-      .get(SERVER_URL + address)
-      .then((response) => {
-        const products = response.data;
-        dispatch(fetchEventsSuccess(products));
-      })
-      .catch((error) => {
-        const errorMsg = error.message;
-        dispatch(fetchEventsFailure(errorMsg));
-      });
-  };
-};
-
-export const fetchFilter = (fetchValues) => {
+const fetchPosts = (fetchValues) => {
   let address = "";
   if (fetchValues.launch_success) {
     address += fetchValues.launch_success;
