@@ -48,7 +48,7 @@ const ProgramCard = ({
           image={mission_patch}
           title={mission_name}
         />
-        <CardContent title={mission_name+' # '+flight_number}>
+        <CardContent title={mission_name + " # " + flight_number}>
           <div variant="body1">
             <Typography gutterBottom variant="body1" noWrap></Typography>
             {mission_name}#{flight_number}
@@ -75,7 +75,7 @@ const ProgramCard = ({
 
           <div variant="body2">
             Successful Landing :{" "}
-            {(land_success.land_success) === null ? (
+            {land_success.land_success === null ? (
               <Typography variant="body2">Not Available </Typography>
             ) : (
               JSON.stringify(land_success.land_success)
