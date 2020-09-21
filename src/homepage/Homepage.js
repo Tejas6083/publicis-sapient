@@ -6,6 +6,8 @@ import ProgramCard from "../card/Card";
 
 import { connect } from "react-redux";
 import fetchPosts from "../redux/spaceX/Fetch";
+import LinearIndeterminate from "../loading/Loading";
+import { ErrorAlert, InfoAlert } from "../error_message/Error_Message";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,15 +21,16 @@ const useStyles = makeStyles((theme) => ({
 
 const Homepage = ({ eventsList, Error, Loading, getEvents }) => {
   const classes = useStyles();
+  console.log(Loading);
 
   useEffect(() => {
     async function foo() {
       let address;
       await getEvents();
-      console.log(address,Homepage);
+      console.log(address, Homepage);
     }
     foo();
-  }, []);
+  }, [getEvents]);
 
   return (
     <div className={classes.root}>
@@ -38,17 +41,17 @@ const Homepage = ({ eventsList, Error, Loading, getEvents }) => {
 
         <Grid container align="center" item xs={12} sm={8}>
           {Loading ? (
-            <div>
-              {Loading} <h1>bcb dsc sdc snbcn cb sdc bd</h1>
-            </div>
+            <LinearIndeterminate />
           ) : Error ? (
-            <div> {Error} </div>
+            <ErrorAlert message="Something Went Wrong While Fetching Data. Please Try Again In Sometime" />
+          ) : eventsList.length === 0 ? (
+            <InfoAlert message="There is no Data for this Combination of Search" />
           ) : (
             eventsList.map((data) => (
               <Grid
                 item
                 className={classes.items}
-                key={data.flight_number}
+                key={data.flight_number + Math.random()}
                 xs={12}
                 sm={6}
                 md={3}

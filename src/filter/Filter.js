@@ -8,7 +8,7 @@ import { Grid } from "@material-ui/core";
 import CustomizedButtons from "../button/Button";
 import { connect } from "react-redux";
 
-import {fetchFilter} from "../redux/spaceX/Fetch";
+import { fetchFilter } from "../redux/spaceX/Fetch";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,21 +28,20 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const FilterCard = ({getEvents}) => {
+const FilterCard = ({ getEvents }) => {
   const classes = useStyles();
 
   const [useFetchValue, setFetchValue] = useState(null);
 
-  useEffect( () => {
+  useEffect(() => {
     async function fetch() {
-      await getEvents(useFetchValue)
+      await getEvents(useFetchValue);
     }
-    if(useFetchValue!== null){
-      console.log("hii",useFetchValue);
+    if (useFetchValue !== null) {
+      console.log("hii", useFetchValue);
       fetch();
-      
     }
-  },[useFetchValue,getEvents]);
+  }, [useFetchValue, getEvents]);
 
   const handleClick = (e, name) => {
     e.preventDefault();
@@ -55,25 +54,24 @@ const FilterCard = ({getEvents}) => {
       case "launch_success":
         setFetchValue({
           ...useFetchValue,
-          launch_success: '&'+e.currentTarget.value + "=" + name,
+          launch_success: "&" + e.currentTarget.value + "=" + name,
         });
         break;
       case "land_success":
         setFetchValue({
           ...useFetchValue,
-          land_success: '&'+e.currentTarget.value + "=" + name,
+          land_success: "&" + e.currentTarget.value + "=" + name,
         });
         break;
       case "launch_year":
-        setFetchValue(useFetchValue => ({
-          launch_year: '&'+e.currentTarget.value + "=" + name,
-        }));
+        setFetchValue({
+          launch_year: "&" + e.currentTarget.value + "=" + name,
+        });
         break;
       default:
         setFetchValue({ ...useFetchValue });
     }
   };
-
 
   return (
     <Card className={classes.root}>
@@ -144,9 +142,8 @@ const FilterCard = ({getEvents}) => {
   );
 };
 
-
 const mapDispatchToProps = {
   getEvents: fetchFilter,
 };
 
-export default connect(null,mapDispatchToProps)(FilterCard);
+export default connect(null, mapDispatchToProps)(FilterCard);

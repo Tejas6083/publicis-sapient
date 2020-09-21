@@ -28,7 +28,11 @@ const CustomizedButtons = (props) => {
   const { name, action, value } = props;
 
   return (
-    <ColorButton fullWidth value={value} onClick={(e) => action(e, name, "value")}>
+    <ColorButton
+      fullWidth
+      value={value}
+      onClick={(e) => action(e, name, "value")}
+    >
       {name}
     </ColorButton>
   );

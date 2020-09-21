@@ -1,8 +1,8 @@
-import { combineReducers } from 'redux';
-import SpacexReducer  from './spaceX/Reducer';
+import { combineReducers } from "redux";
+import SpacexReducer from "./spaceX/Reducer";
 
 const rootReducer = combineReducers({
-    event: SpacexReducer
-})
+  event: SpacexReducer,
+});
 
 export default rootReducer;

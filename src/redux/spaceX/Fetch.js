@@ -26,16 +26,16 @@ const fetchPosts = (address) => {
 };
 
 export const fetchFilter = (fetchValues) => {
-    let address = '';
-    if(fetchValues.launch_success){
-        address += fetchValues.launch_success;
-    }
-    if(fetchValues.land_success){
-        address += fetchValues.land_success
-    }
-    if(fetchValues.launch_year) {
-        address += fetchValues.launch_year
-    }
+  let address = "";
+  if (fetchValues.launch_success) {
+    address += fetchValues.launch_success;
+  }
+  if (fetchValues.land_success) {
+    address += fetchValues.land_success;
+  }
+  if (fetchValues.launch_year) {
+    address += fetchValues.launch_year;
+  }
   return (dispatch) => {
     console.log(address, "address");
     dispatch(fetchEventsRequest);
@@ -51,6 +51,5 @@ export const fetchFilter = (fetchValues) => {
       });
   };
 };
-
 
 export default fetchPosts;
