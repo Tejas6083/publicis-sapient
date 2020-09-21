@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
@@ -6,6 +6,9 @@ import Typography from "@material-ui/core/Typography";
 import YearFilter from "./Year_Filter";
 import { Grid } from "@material-ui/core";
 import CustomizedButtons from "../button/Button";
+import { connect } from "react-redux";
+
+import {fetchFilter} from "../redux/spaceX/Fetch";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,8 +28,52 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const FilterCard = () => {
+const FilterCard = ({getEvents}) => {
   const classes = useStyles();
+
+  const [useFetchValue, setFetchValue] = useState(null);
+
+  useEffect( () => {
+    async function fetch() {
+      await getEvents(useFetchValue)
+    }
+    if(useFetchValue!== null){
+      console.log("hii",useFetchValue);
+      fetch();
+      
+    }
+  },[useFetchValue,getEvents]);
+
+  const handleClick = (e, name) => {
+    e.preventDefault();
+
+    // if (!(typeof name === "string")) {
+    //   name = JSON.stringify(name);
+    // }
+    name = name.toLowerCase().trim();
+    switch (e.currentTarget.value) {
+      case "launch_success":
+        setFetchValue({
+          ...useFetchValue,
+          launch_success: '&'+e.currentTarget.value + "=" + name,
+        });
+        break;
+      case "land_success":
+        setFetchValue({
+          ...useFetchValue,
+          land_success: '&'+e.currentTarget.value + "=" + name,
+        });
+        break;
+      case "launch_year":
+        setFetchValue(useFetchValue => ({
+          launch_year: '&'+e.currentTarget.value + "=" + name,
+        }));
+        break;
+      default:
+        setFetchValue({ ...useFetchValue });
+    }
+  };
+
 
   return (
     <Card className={classes.root}>
@@ -43,21 +90,29 @@ const FilterCard = () => {
           Launch Year
         </Typography>
 
-        <div  className={classes.filter}>
-          <YearFilter />
+        <div className={classes.filter}>
+          <YearFilter action={handleClick} value="launch_year" />
         </div>
 
         <Typography className={classes.pos} color="textSecondary">
           Successful Launch
         </Typography>
 
-        <div className={classes.filter} >
+        <div className={classes.filter}>
           <Grid container spacing={1}>
             <Grid item xs={6}>
-              <CustomizedButtons name="True" />
+              <CustomizedButtons
+                name="True"
+                value="launch_success"
+                action={handleClick}
+              />
             </Grid>
             <Grid item xs={6}>
-              <CustomizedButtons name="False" />
+              <CustomizedButtons
+                name="False"
+                value="launch_success"
+                action={handleClick}
+              />
             </Grid>
           </Grid>
         </div>
@@ -69,10 +124,18 @@ const FilterCard = () => {
         <div className={classes.filter} component="p">
           <Grid container spacing={1}>
             <Grid item xs={6}>
-              <CustomizedButtons name="True" />
+              <CustomizedButtons
+                name="True"
+                value="land_success"
+                action={handleClick}
+              />
             </Grid>
             <Grid item xs={6}>
-              <CustomizedButtons name="False" />
+              <CustomizedButtons
+                name="False"
+                value="land_success"
+                action={handleClick}
+              />
             </Grid>
           </Grid>
         </div>
@@ -81,4 +144,9 @@ const FilterCard = () => {
   );
 };
 
-export default FilterCard;
+
+const mapDispatchToProps = {
+  getEvents: fetchFilter,
+};
+
+export default connect(null,mapDispatchToProps)(FilterCard);

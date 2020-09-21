@@ -22,7 +22,9 @@ const Homepage = ({ eventsList, Error, Loading, getEvents }) => {
 
   useEffect(() => {
     async function foo() {
-      await getEvents("limit=100");
+      let address;
+      await getEvents();
+      console.log(address,Homepage);
     }
     foo();
   }, []);

@@ -25,20 +25,10 @@ const ColorButton = withStyles((theme) => ({
 }))(Button);
 
 const CustomizedButtons = (props) => {
-  const { name } = props;
-
-  const handleClick = (e, name) => {
-    e.preventDefault();
-    
-    if (!(typeof name === "string")) {
-      name = JSON.stringify(name);
-    }
-    name = name.toLowerCase().trim();
-    console.log(name);
-  };
+  const { name, action, value } = props;
 
   return (
-    <ColorButton fullWidth onClick={(e) => handleClick(e, name)}>
+    <ColorButton fullWidth value={value} onClick={(e) => action(e, name, "value")}>
       {name}
     </ColorButton>
   );
