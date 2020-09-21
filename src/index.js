@@ -5,6 +5,8 @@ import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
+import store  from "./redux/Store";
+import { Provider } from "react-redux";
 
 const theme = createMuiTheme({
   breakpoints: {
@@ -20,7 +22,9 @@ const theme = createMuiTheme({
 ReactDOM.render(
   <React.StrictMode>
     <MuiThemeProvider theme={theme}>
-      <App />
+      <Provider store={store}>
+        <App />
+      </Provider>
     </MuiThemeProvider>
   </React.StrictMode>,
   document.getElementById("root")

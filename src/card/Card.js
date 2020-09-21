@@ -10,26 +10,33 @@ import Typography from "@material-ui/core/Typography";
 const styles = makeStyles((theme) => ({
   root: {
     padding: theme.spacing(1),
+    // width: 220,
     [theme.breakpoints.down("sm")]: {
-      // backgroundColor: theme.palette.secondary.main,
-      maxWidth: "100%",
+      maxWidth: 345,
     },
     [theme.breakpoints.up("sm")]: {
-      // backgroundColor: theme.palette.primary.main,
-      maxWidth: "100%",
+      maxWidth: 345,
     },
     [theme.breakpoints.up("md")]: {
-      // backgroundColor: green[500],
-      maxWidth: "100%",
+      maxWidth: 200,
     },
     [theme.breakpoints.up("lg")]: {
-      // backgroundColor: theme.palette.primary.main,
+      width: 300,
       maxWidth: 1440,
     },
   },
 }));
 
-const ProgramCard = () => {
+const ProgramCard = ({
+  mission_patch,
+  mission_name,
+  flight_number,
+  mission_id,
+  launch_date,
+  launch_year,
+  launch_success,
+  land_success,
+}) => {
   const classes = styles();
 
   return (
@@ -37,19 +44,43 @@ const ProgramCard = () => {
       <CardActionArea>
         <CardMedia
           component="img"
-          alt="Contemplative Reptile"
-          height="140"
-          image="/static/images/cards/contemplative-reptile.jpg"
-          title="Contemplative Reptile"
+          alt={mission_name}
+          image={mission_patch}
+          title={mission_name}
         />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            Lizard
+        <CardContent title={mission_name+' # '+flight_number}>
+          <div variant="body1">
+            <Typography gutterBottom variant="body1" noWrap></Typography>
+            {mission_name}#{flight_number}
+          </div>
+
+          <div variant="body1">
+            Mission Ids:
+            {mission_id.length !== 0 ? (
+              mission_id.map((id) => (
+                <Typography variant="body2" key={launch_date + mission_name}>
+                  <li variant="body2">{id}</li>
+                </Typography>
+              ))
+            ) : (
+              <Typography variant="body2">No Id</Typography>
+            )}
+          </div>
+
+          <Typography variant="body2">Launch Year : {launch_year}</Typography>
+
+          <Typography variant="body2">
+            Successful Launch : {JSON.stringify(launch_success)}
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
-          </Typography>
+
+          <div variant="body2">
+            Successful Landing :{" "}
+            {(land_success.land_success) === null ? (
+              <Typography variant="body2">Not Available </Typography>
+            ) : (
+              JSON.stringify(land_success.land_success)
+            )}
+          </div>
         </CardContent>
       </CardActionArea>
     </Card>
