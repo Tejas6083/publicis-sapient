@@ -38,7 +38,7 @@ const FilterCard = ({ getEvents }) => {
       await getEvents(useFetchValue);
     }
     if (useFetchValue !== null) {
-      console.log("hii", useFetchValue);
+      console.log("In Filter.js", useFetchValue);
       fetch();
     }
   }, [useFetchValue, getEvents]);
@@ -67,6 +67,9 @@ const FilterCard = ({ getEvents }) => {
         setFetchValue({
           launch_year: "&" + e.currentTarget.value + "=" + name,
         });
+        break;
+      case "clear":
+        setFetchValue("");
         break;
       default:
         setFetchValue({ ...useFetchValue });
@@ -132,6 +135,15 @@ const FilterCard = ({ getEvents }) => {
               <CustomizedButtons
                 name="False"
                 value="land_success"
+                action={handleClick}
+              />
+            </Grid>
+            <br />
+            <br />
+            <Grid item xs={12}>
+              <CustomizedButtons
+                name="Clear All Filters"
+                value="clear"
                 action={handleClick}
               />
             </Grid>

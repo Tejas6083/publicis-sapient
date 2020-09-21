@@ -15,6 +15,7 @@ const SpacexReducer = (state = initialState, action) => {
     case FETCH_EVENTS_REQUEST:
       return {
         ...state,
+        loading: true,
       };
 
     case FETCH_EVENTS_SUCCESS:

@@ -10,7 +10,6 @@ const SERVER_URL = "https://api.spaceXdata.com/v3/launches?limit=100";
 
 const fetchPosts = (address) => {
   return (dispatch) => {
-    console.log(address, "address");
     dispatch(fetchEventsRequest);
     axios
       .get(SERVER_URL + address)
@@ -37,7 +36,6 @@ export const fetchFilter = (fetchValues) => {
     address += fetchValues.launch_year;
   }
   return (dispatch) => {
-    console.log(address, "address");
     dispatch(fetchEventsRequest);
     axios
       .get(SERVER_URL + address)
