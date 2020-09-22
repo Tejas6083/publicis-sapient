@@ -17,9 +17,8 @@ function App() {
       <Header />
       <ErrorBoundary>
         <Homepage />
-        <BackToTop />
       </ErrorBoundary>
-
+      <BackToTop />
       <FooterBar />
     </div>
   );
