@@ -13,13 +13,19 @@ const styles = makeStyles((theme) => ({
       maxWidth: 700,
     },
     [theme.breakpoints.up("sm")]: {
-      maxWidth: 345,
+      // maxWidth: 345,
+      width: '28vw',
+      height: '54vw'
     },
     [theme.breakpoints.up("md")]: {
-      maxWidth: 200,
+      // maxWidth: 200,
+      width: '13vw',
+      height: '37vw'
     },
     [theme.breakpoints.up("lg")]: {
-      width: 500,
+      // width: 500,
+      width: '25vw',
+      height: '37vw',
       maxWidth: 1440,
     },
   },
@@ -42,13 +48,14 @@ const ProgramCard = ({
       <CardActionArea>
         <CardMedia
           component="img"
+          // height= '420'
           alt={mission_name}
           image={mission_patch}
           title={mission_name}
         />
         <CardContent title={mission_name + " # " + flight_number}>
-          <div variant="body1">
-            <Typography gutterBottom variant="body1" noWrap></Typography>
+          <div  variant="body1">
+            <Typography gutterBottom variant="h2"component="h1" noWrap></Typography>
             {mission_name} #{flight_number}
           </div>
 
