@@ -40,6 +40,7 @@ const Homepage = ({ eventsList, Error, Loading, getEvents }) => {
         </Grid>
 
         <Grid container align="center" item xs={12} sm={8}>
+
           {Loading ? (
             <LinearIndeterminate />
           ) : Error ? (
@@ -57,18 +58,18 @@ const Homepage = ({ eventsList, Error, Loading, getEvents }) => {
                 md={3}
                 lg={12}
               >
-                <Toolbar id="back-to-top-anchor">
-                  <ProgramCard
-                    mission_patch={data.links.mission_patch_small}
-                    mission_name={data.mission_name}
-                    flight_number={data.flight_number}
-                    mission_id={data.mission_id}
-                    launch_date={data.launch_date_local}
-                    launch_year={data.launch_year}
-                    launch_success={data.launch_success}
-                    land_success={data.rocket.first_stage.cores[0]}
-                  />
-                </Toolbar>
+                <ProgramCard
+                  mission_patch={data.links.mission_patch_small}
+                  mission_name={data.mission_name}
+                  flight_number={data.flight_number}
+                  mission_id={data.mission_id}
+                  launch_date={data.launch_date_local}
+                  launch_year={data.launch_year}
+                  launch_success={data.launch_success}
+                  land_success={data.rocket.first_stage.cores[0]}
+                />
+                        <Toolbar id="back-to-top-anchor" />
+
               </Grid>
             ))
           )}
