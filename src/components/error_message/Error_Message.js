@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export function ErrorAlert({ message }) {
+const ErrorAlert = ({ message }) => {
   const classes = useStyles();
 
   return (
@@ -24,7 +24,7 @@ export function ErrorAlert({ message }) {
   );
 }
 
-export function InfoAlert({ message }) {
+const InfoAlert = ({ message }) => {
   const classes = useStyles();
 
   return (
@@ -35,3 +35,5 @@ export function InfoAlert({ message }) {
     </div>
   );
 }
+
+export { InfoAlert, ErrorAlert };

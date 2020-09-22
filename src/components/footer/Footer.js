@@ -2,7 +2,7 @@ import React from "react";
 import { AppBar, CssBaseline, Toolbar, Typography } from "@material-ui/core";
 import useStyles from "./Footer_style";
 
-export default function FooterBar() {
+const FooterBar = () => {
   const classes = useStyles();
 
   return (
@@ -20,4 +20,6 @@ export default function FooterBar() {
       </AppBar>
     </React.Fragment>
   );
-}
+};
+
+export default FooterBar;

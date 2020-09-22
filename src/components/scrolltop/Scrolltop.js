@@ -6,7 +6,7 @@ import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import Zoom from "@material-ui/core/Zoom";
 import ScrollStyle from "./Styles";
 
-function ScrollTop(props) {
+const ScrollTop = (props) => {
   const { children } = props;
   const classes = ScrollStyle();
   const trigger = useScrollTrigger({
@@ -37,7 +37,7 @@ ScrollTop.propTypes = {
   children: PropTypes.element.isRequired,
 };
 
-export default function BackToTop(props) {
+const BackToTop = (props) => {
   return (
     <React.Fragment>
       <ScrollTop {...props}>
@@ -48,3 +48,5 @@ export default function BackToTop(props) {
     </React.Fragment>
   );
 }
+
+export default BackToTop

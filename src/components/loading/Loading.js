@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function LinearIndeterminate() {
+const LinearIndeterminate = () => {
   const classes = useStyles();
 
   return (
@@ -19,4 +19,6 @@ export default function LinearIndeterminate() {
       <LinearProgress color="primary" />
     </div>
   );
-}
+};
+
+export default LinearIndeterminate;

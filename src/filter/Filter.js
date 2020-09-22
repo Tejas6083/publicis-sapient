@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, lazy } from "react";
 import { Card, CardContent, Typography, Grid } from "@material-ui/core";
-import YearFilter from "./Year_Filter";
-import CustomizedButtons from "../components/button/Button";
 import useStyles from "./Filter_Style";
 import { connect } from "react-redux";
 import fetchPosts from "../redux/spaceX/Fetch";
+
+const YearFilter = lazy(() => import("./Year_Filter"));
+const CustomizedButtons = lazy(() => import("../components/button/Button"));
 
 const FilterCard = ({ getEvents }) => {
   const classes = useStyles();

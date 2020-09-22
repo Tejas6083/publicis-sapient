@@ -1,10 +1,14 @@
-import React from "react";
-import ErrorBoundary from "./components/error_message/Error_Boundary";
-import Header from "./components/header/Header";
-import Homepage from "./homepage/Homepage";
-import FooterBar from "./components/footer/Footer";
+import React, { lazy, Suspense } from "react";
 import AppStyle from "./App_Style";
-import BackToTop from "./components/scrolltop/Scrolltop";
+
+import Header from "./components/header/Header";
+import FooterBar from "./components/footer/Footer";
+import LinearIndeterminate from "./components/loading/Loading";
+const Homepage = lazy(() => import("./homepage/Homepage"));
+const BackToTop = lazy(() => import("./components/scrolltop/Scrolltop"));
+const ErrorBoundary = lazy(() =>
+  import("./components/error_message/Error_Boundary")
+);
 
 // const ButtonComponent = () => {
 //   throw Error("error!");
@@ -12,14 +16,17 @@ import BackToTop from "./components/scrolltop/Scrolltop";
 
 function App() {
   const classes = AppStyle();
+  const renderLoader = () => <LinearIndeterminate />;
   return (
     <div className={classes.root}>
       <Header />
-      <ErrorBoundary>
-        <Homepage />
-      </ErrorBoundary>
-      <BackToTop />
-      <FooterBar />
+      <Suspense fallback={renderLoader}>
+        <ErrorBoundary>
+          <Homepage />
+        </ErrorBoundary>
+        <BackToTop />
+        <FooterBar />
+      </Suspense>
     </div>
   );
 }
