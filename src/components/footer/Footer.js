@@ -1,5 +1,12 @@
 import React from "react";
-import { AppBar, CssBaseline, Toolbar, Typography } from "@material-ui/core";
+import GitHubIcon from "@material-ui/icons/GitHub";
+import {
+  AppBar,
+  CssBaseline,
+  IconButton,
+  Toolbar,
+  Typography,
+} from "@material-ui/core";
 import useStyles from "./Footer_style";
 
 const FooterBar = () => {
@@ -12,6 +19,17 @@ const FooterBar = () => {
       <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>
           <Typography className={classes.text} variant="body2" gutterBottom>
+            <IconButton
+              color="inherit"
+              onClick={() =>
+                window.open(
+                  "https://github.com/Tejas6083/publicis-sapient",
+                  "_blank"
+                )
+              }
+            >
+              <GitHubIcon />
+            </IconButton>
             [ Developer - TEJAS R ]
           </Typography>
 
