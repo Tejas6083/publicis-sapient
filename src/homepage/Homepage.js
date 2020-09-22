@@ -1,13 +1,15 @@
 import React, { useEffect } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Grid from "@material-ui/core/Grid";
+import { makeStyles, Grid } from "@material-ui/core";
 import FilterCard from "../filter/Filter";
-import ProgramCard from "../card/Card";
+import ProgramCard from "../components/card/Card";
 
 import { connect } from "react-redux";
 import fetchPosts from "../redux/spaceX/Fetch";
-import LinearIndeterminate from "../loading/Loading";
-import { ErrorAlert, InfoAlert } from "../error_message/Error_Message";
+import LinearIndeterminate from "../components/loading/Loading";
+import {
+  ErrorAlert,
+  InfoAlert,
+} from "../components/error_message/Error_Message";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,7 +23,6 @@ const useStyles = makeStyles((theme) => ({
 
 const Homepage = ({ eventsList, Error, Loading, getEvents }) => {
   const classes = useStyles();
-  console.log(Loading, "in HomePage");
   useEffect(() => {
     async function foo() {
       await getEvents("");
@@ -40,7 +41,7 @@ const Homepage = ({ eventsList, Error, Loading, getEvents }) => {
           {Loading ? (
             <LinearIndeterminate />
           ) : Error ? (
-            <ErrorAlert message="Something Went Wrong While Fetching Data. Please Try Again In Sometime" />
+            <ErrorAlert message="Something Went Wrong Check Your Internet Connection or Please Try Again In Sometime" />
           ) : eventsList.length === 0 ? (
             <InfoAlert message="There is no Data for this Combination of Search" />
           ) : (

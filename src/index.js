@@ -4,8 +4,6 @@ import ReactDOM from "react-dom";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 
 import App from "./App";
-import purple from "@material-ui/core/colors/purple";
-import green from "@material-ui/core/colors/green";
 import * as serviceWorker from "./serviceWorker";
 import store from "./redux/Store";
 import { Provider } from "react-redux";
@@ -21,10 +19,15 @@ const theme = createMuiTheme({
   },
   palette: {
     primary: {
-      main: purple[500],
+      main: "#EDC7B7", //Heading
+      light: "#EEE2DC", //Body Background
+      dark: "#BAB2B5", //Footer
     },
     secondary: {
-      main: green[500],
+      main: "#AC31B61", //Text
+      light: "#123C69", //Card, Main Heading
+      dark: "#a28089", //Dark Sand
+      footer: "#393f4d", //Deep Matte Grey
     },
   },
 });

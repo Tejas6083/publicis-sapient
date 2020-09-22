@@ -22,6 +22,7 @@ const SpacexReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
+        error: "",
         eventsList: action.payload,
       };
 

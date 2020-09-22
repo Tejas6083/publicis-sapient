@@ -1,22 +1,22 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import ProgramCard from "../card/Card";
+import LinearProgress from "@material-ui/core/LinearProgress";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    padding: theme.spacing(1),
-    alignItems: "center",
+    width: "100%",
+    "& > * + *": {
+      marginTop: theme.spacing(3),
+    },
   },
 }));
 
-const ListView = () => {
+export default function LinearIndeterminate() {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
-      <ProgramCard />
+      <LinearProgress color="primary" />
     </div>
   );
-};
-
-export default ListView;
+}
