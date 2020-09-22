@@ -4,6 +4,8 @@ import Header from "./components/header/Header";
 import Homepage from "./homepage/Homepage";
 import FooterBar from "./components/footer/Footer";
 import AppStyle from "./App_Style";
+import BackToTop from "./components/scrolltop/Scrolltop";
+
 // const ButtonComponent = () => {
 //   throw Error("error!");
 // };
@@ -15,7 +17,9 @@ function App() {
       <Header />
       <ErrorBoundary>
         <Homepage />
+        <BackToTop />
       </ErrorBoundary>
+
       <FooterBar />
     </div>
   );

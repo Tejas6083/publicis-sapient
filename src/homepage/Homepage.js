@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { makeStyles, Grid } from "@material-ui/core";
+import { makeStyles, Grid, Toolbar, CssBaseline } from "@material-ui/core";
 import FilterCard from "../filter/Filter";
 import ProgramCard from "../components/card/Card";
 
@@ -32,6 +32,10 @@ const Homepage = ({ eventsList, Error, Loading, getEvents }) => {
 
   return (
     <div className={classes.root}>
+      <CssBaseline />
+
+      <Toolbar id="back-to-top-anchor" />
+
       <Grid container spacing={1}>
         <Grid item xs={12} sm={4}>
           <FilterCard />
