@@ -8,7 +8,7 @@ const ScrollStyle = makeStyles((theme) => ({
   },
   colour: {
     color: "black",
-    backgroundColor: "default",
+    background: "default",
   },
 }));
 

@@ -3,20 +3,18 @@ import { withStyles, Button } from "@material-ui/core";
 const ColorButton = withStyles((theme) => ({
   root: {
     color: "secondary",
-    backgroundColor: theme.palette.primary.light,
-    margin: "0 0 0 0",
-    padding: "0 0 0 0",
+    background: "linear-gradient(45deg, #ee9ca7 25%, #ffdde1 90%)",
     borderRadius: 45,
 
     "&:hover": {
       color: theme.palette.primary.light,
-      backgroundColor: theme.palette.secondary.light,
+      background: theme.palette.secondary.light,
     },
     "&:active": {
       boxShadow: "none",
       color: theme.palette.primary.light,
-      backgroundColor: theme.palette.secondary.light,
-      borderColor: "#005cbf",
+      background: theme.palette.secondary.light,
+      border: "#005cbf",
     },
   },
 }))(Button);

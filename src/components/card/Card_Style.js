@@ -3,22 +3,23 @@ import { makeStyles } from "@material-ui/core/styles";
 const CardStyle = makeStyles((theme) => ({
   root: {
     padding: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.light,
+    background: theme.palette.secondary.light,
     borderRadius: 10,
+    display: 'flex',
     [theme.breakpoints.down("sm")]: {
       maxWidth: 700,
     },
     [theme.breakpoints.up("sm")]: {
-      width: "28vw",
+      width: "30vw",
       height: "54vw",
     },
     [theme.breakpoints.up("md")]: {
-      width: "13vw",
-      height: "37vw",
+      width: "15vw",
+      height: "39.5vw",
     },
     [theme.breakpoints.up("lg")]: {
       width: "25vw",
-      height: "37vw",
+      height: "36vw",
       maxWidth: 1440,
     },
   },

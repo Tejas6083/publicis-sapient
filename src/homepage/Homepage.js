@@ -1,5 +1,5 @@
 import React, { lazy, useEffect } from "react";
-import { makeStyles, Grid, Toolbar, CssBaseline } from "@material-ui/core";
+import { makeStyles, Grid, Toolbar } from "@material-ui/core";
 import FilterCard from "../filter/Filter";
 
 import { connect } from "react-redux";
@@ -13,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     padding: theme.spacing(1),
+    paddingBottom: theme.spacing(7),
   },
   items: {
     padding: "0 5px 5px",
@@ -30,12 +31,10 @@ const Homepage = ({ eventsList, Error, Loading, getEvents }) => {
 
   return (
     <div className={classes.root}>
-      <CssBaseline />
-
       <Grid container spacing={1}>
         <Grid item xs={12} sm={4}>
-          <FilterCard />
           <Toolbar id="back-to-top-anchor" />
+          <FilterCard />
         </Grid>
 
         <Grid container align="center" item xs={12} sm={8}>

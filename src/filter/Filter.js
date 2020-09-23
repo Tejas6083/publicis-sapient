@@ -55,11 +55,7 @@ const FilterCard = ({ getEvents }) => {
     <React.Fragment>
       <Card className={classes.root}>
         <CardContent>
-          <Typography
-            className={classes.title}
-            // color="textSecondary"
-            gutterBottom
-          >
+          <Typography className={classes.title} gutterBottom>
             FILTERS
           </Typography>
 

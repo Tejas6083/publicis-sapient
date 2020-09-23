@@ -4,7 +4,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     padding: theme.spacing(1),
     borderRadius: 20,
-    backgroundColor: "#12343b",
+    background: "linear-gradient(45deg, #cc2b5e 30%, #753a88 90%)",
   },
   filter: {
     padding: theme.spacing(2),
@@ -12,12 +12,10 @@ const useStyles = makeStyles((theme) => ({
   title: {
     fontSize: 16,
     textAlign: "left",
-    color: theme.palette.secondary.dark,
   },
   pos: {
     fontSize: 14,
     textAlign: "center",
-    color: theme.palette.secondary.dark,
   },
 }));
 
