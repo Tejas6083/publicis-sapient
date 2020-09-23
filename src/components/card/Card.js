@@ -27,7 +27,7 @@ const ProgramCard = ({
       <CardActionArea>
         <CardMedia
           component="img"
-          width = '256px'
+          width="256px"
           alt={mission_name}
           image={mission_patch}
           title={mission_name}
@@ -53,7 +53,9 @@ const ProgramCard = ({
                 component="h5"
                 key={launch_date + Math.random()}
               >
-                <li>{id}</li>
+                <ul>
+                  <li>{id}</li>
+                </ul>
               </Typography>
             ))
           ) : (
