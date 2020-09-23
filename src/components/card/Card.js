@@ -53,9 +53,7 @@ const ProgramCard = ({
                 component="h5"
                 key={launch_date + Math.random()}
               >
-                <ul>
-                  <li>{id}</li>
-                </ul>
+                <li>{id}</li>
               </Typography>
             ))
           ) : (
