@@ -1,10 +1,11 @@
-import React, { lazy } from "react";
+import React, { useEffect, lazy } from "react";
 import { makeStyles, Grid, Toolbar } from "@material-ui/core";
 import FilterCard from "../filter/Filter";
 
 import { connect } from "react-redux";
 import LinearIndeterminate from "../components/loading/Loading";
 import * as alert from "../components/error_message/Error_Message";
+import fetchPosts from "../redux/spaceX/Fetch";
 
 const ProgramCard = lazy(() => import("../components/card/Card"));
 
@@ -19,8 +20,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Homepage = ({ eventsList, Error, Loading }) => {
+const Homepage = ({ getEvents, eventsList, Error, Loading }) => {
   const classes = useStyles();
+  useEffect(() => {
+    async function foo() {
+      await getEvents("");
+    }
+    foo();
+  }, [getEvents]);
 
   return (
     <div className={classes.root}>
@@ -73,8 +80,8 @@ const mapStatetoProps = (state) => ({
   Loading: state.event.loading,
 });
 
-// const mapDispatchToProps = {
-//   getEvents: fetchPosts,
-// };
+const mapDispatchToProps = {
+  getEvents: fetchPosts,
+};
 
-export default connect(mapStatetoProps, null)(Homepage);
+export default connect(mapStatetoProps, mapDispatchToProps)(Homepage);
