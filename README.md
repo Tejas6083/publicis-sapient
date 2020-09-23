@@ -6,6 +6,7 @@ Link:- https://spacex-tej.herokuapp.com.
 ## Technology
 
 React, Redux, Axios, Materila-UI
+Error handling is done also error boundary is included to not break website and stay in the flow for better user experience and understanding.
 
 ## Use Case
 
