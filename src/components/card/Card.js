@@ -27,6 +27,7 @@ const ProgramCard = ({
       <CardActionArea>
         <CardMedia
           component="img"
+          width = '256px'
           alt={mission_name}
           image={mission_patch}
           title={mission_name}
