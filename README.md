@@ -1,13 +1,21 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 ## About
 A webapp to checkout the information of spacex launch vehicles with respect to year or launch and land success or failure scenarios.
-Link:- spacex-tej.herokuapp.com.
+Link:- https://spacex-tej.herokuapp.com.
 
 ## Technology
+
 React, Redux, Axios, Materila-UI
 
 ## Use Case
+
 On Initial Load all data will be fetched. On clicking year in Year Filter all records of particular year is fetched and similar to all other filters. But if user first selects year and then select launch and land filter the data of launch and land with respect to the year selected by user is displayed and a button is given to clear all filters applied by user which results in displaying all records. And all this are done without refreshing the page.
+
+## LightHouse Chrome Performance Score
+
+<img src="lighthouse_score/spacex_lighthouse_2.png" height="200" width="500">
+
+<img src="lighthouse_score/spacex_lighthouse_1.png" height="200" width="500">
 
 
 ## Available Scripts
