@@ -22,6 +22,9 @@ On Initial Load all data will be fetched. On clicking year in Year Filter all re
 
 In the project directory, you can run:
 
+### `npm init`
+Initialize after cloning the repo
+
 ### `npm start`
 
 Runs the app in the development mode.<br />
