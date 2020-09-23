@@ -21,12 +21,10 @@ const theme = createMuiTheme({
     primary: {
       main: "#EDC7B7", //Heading
       light: "#EEE2DC", //Body Background
-      dark: "#BAB2B5", //Footer
     },
     secondary: {
       main: "#AC31B61", //Text
       light: "#123C69", //Card, Main Heading
-      dark: "#a28089", //Dark Sand
       footer: "#393f4d", //Deep Matte Grey
     },
   },

@@ -14,7 +14,6 @@ const useStyles = makeStyles((theme) => ({
   },
   text: {
     position: "center",
-    // color: theme.palette.primary.dark,
     color: "#a0d2eb",
     opacity: 1,
     zIndex: 2,
