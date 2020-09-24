@@ -6,7 +6,7 @@ import rootReducers from "./Root_Reducer";
 
 const MiddleWare =[thunk];
 
-if(process.env.Node_ENV === 'development') {
+if(process.env.NODE_ENV === 'development') {
   MiddleWare.push(logger)
 }
 
