@@ -1,6 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 ## About
-A webapp to checkout the information of spacex launch vehicles with respect to year or launch and land success or failure scenarios.
+A webapp with PWA enabled to checkout the information of spacex launch vehicles with respect to year or launch and land success or failure scenarios.
 Link:- https://spacex-tej.herokuapp.com.
 
 ## Technology
